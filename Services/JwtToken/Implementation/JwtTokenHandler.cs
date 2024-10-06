@@ -2,7 +2,7 @@
 using System.Security.Claims;
 
 
-public class JwtTokenHandler
+public class JwtTokenHandler : IJwtTokenHandler
 {
     public string GetEmailFromToken(string token)
     {

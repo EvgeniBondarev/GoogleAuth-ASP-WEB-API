@@ -10,3 +10,4 @@ E:\GoogleAuth\Services\obj\Debug\net8.0\Services.dll
 E:\GoogleAuth\Services\obj\Debug\net8.0\refint\Services.dll
 E:\GoogleAuth\Services\obj\Debug\net8.0\Services.pdb
 E:\GoogleAuth\Services\obj\Debug\net8.0\ref\Services.dll
+E:\GoogleAuth\Services\obj\Debug\net8.0\Services.sourcelink.json

@@ -7,10 +7,10 @@ using Microsoft.IdentityModel.Tokens;
 [Route("api/[controller]")]
 public class AuthController : ControllerBase
 {
-    private readonly JwtTokenService _jwtTokenService;
-    private readonly JwtTokenHandler _jwtTokenHandler;
+    private readonly IJwtTokenService _jwtTokenService;
+    private readonly IJwtTokenHandler _jwtTokenHandler;
 
-    public AuthController(JwtTokenService jwtTokenService, JwtTokenHandler jwtTokenHandler)
+    public AuthController(IJwtTokenService jwtTokenService, IJwtTokenHandler jwtTokenHandler)
     {
         _jwtTokenService = jwtTokenService;
         _jwtTokenHandler = jwtTokenHandler;

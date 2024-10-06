@@ -50,3 +50,4 @@ E:\GoogleAuth\GoogleAuth\bin\Debug\net8.0\Microsoft.Bcl.TimeProvider.dll
 E:\GoogleAuth\GoogleAuth\bin\Debug\net8.0\Services.dll
 E:\GoogleAuth\GoogleAuth\bin\Debug\net8.0\Services.pdb
 E:\GoogleAuth\GoogleAuth\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.Versioning.dll
+E:\GoogleAuth\GoogleAuth\obj\Debug\net8.0\GoogleAuth.sourcelink.json

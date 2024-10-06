@@ -2,9 +2,10 @@
 using Services.JwtToken.Models;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Principal;
 using System.Text;
 
-public class JwtTokenService
+public class JwtTokenService : IJwtTokenService
 {
     private readonly JwtSettings _jwtSettings;
 
@@ -32,26 +33,15 @@ public class JwtTokenService
 
         return new JwtSecurityTokenHandler().WriteToken(token);
     }
-
-    public bool ValidateJwtToken(string token)
+    public bool ValidateJwtToken(string authToken)
     {
-        var tokenHandler = new JwtSecurityTokenHandler();
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.Key));
-
         try
         {
-            tokenHandler.ValidateToken(token, new TokenValidationParameters
-            {
-                ValidateIssuerSigningKey = true,
-                IssuerSigningKey = key,
-                ValidateIssuer = true,
-                ValidIssuer = _jwtSettings.Issuer,
-                ValidateAudience = true,
-                ValidAudience = _jwtSettings.Audience,
-                ValidateLifetime = true,
-                ClockSkew = TimeSpan.Zero
-            }, out SecurityToken validatedToken);
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var validationParameters = GetValidationParameters();
 
+            SecurityToken validatedToken;
+            IPrincipal principal = tokenHandler.ValidateToken(authToken, validationParameters, out validatedToken);
             return true;
         }
         catch (SecurityTokenException ex)
@@ -64,4 +54,16 @@ public class JwtTokenService
         }
     }
 
+    private TokenValidationParameters GetValidationParameters()
+    {
+        return new TokenValidationParameters()
+        {
+            ValidateLifetime = false,  
+            ValidateAudience = false,
+            ValidateIssuer = false,  
+            ValidIssuer = _jwtSettings.Issuer,
+            ValidAudience = _jwtSettings.Audience,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.Key))
+        };
+    }
 }

@@ -64,8 +64,8 @@ namespace GoogleAuth
             };
             builder.Services.AddSingleton(jwtSettings);
 
-            builder.Services.AddScoped<JwtTokenService>();
-            builder.Services.AddScoped<JwtTokenHandler>();
+            builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
+            builder.Services.AddScoped<IJwtTokenHandler, JwtTokenHandler>();
 
             var app = builder.Build();
 
