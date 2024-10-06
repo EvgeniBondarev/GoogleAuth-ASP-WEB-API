@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "0lHgrCypsvE1fdck0LdaGBsMnxYfDQePrC5OXjiR2TE=",
+  "Source": "GoogleAuth",
+  "BasePath": "_content/GoogleAuth",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
